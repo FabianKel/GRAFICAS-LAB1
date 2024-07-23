@@ -14,7 +14,7 @@ use crate::bmp::WriteBmp;
 fn main() {
     let mut framebuffer = Framebuffer::new(800, 600);
 
-    framebuffer.set_background_color(0xFFFFFF);
+    framebuffer.set_background_color(0x000000);
     framebuffer.clear();
 
     //Polígono 1
@@ -103,7 +103,7 @@ fn main() {
 
     framebuffer.polygon(&polygon_points);
 
-    framebuffer.set_current_color(0xFFFFFF);
+    framebuffer.set_current_color(0x000000);
     framebuffer.fill_polygon(&polygon_points);
 
     let _ = framebuffer.render_buffer("output.bmp");
