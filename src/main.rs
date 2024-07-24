@@ -18,8 +18,7 @@ fn main() {
     framebuffer.clear();
 
     //Polígono 1
-    framebuffer.set_current_color(0xFFFFFF);
-
+    //Se definen los vectores
     let polygon_points = vec![
         Vec3::new(165.0, 380.0, 0.0), Vec3::new(185.0, 360.0, 0.0), Vec3::new(180.0, 330.0, 0.0),
         Vec3::new(207.0, 345.0, 0.0), Vec3::new(233.0, 330.0, 0.0), Vec3::new(230.0, 360.0, 0.0),
@@ -27,38 +26,53 @@ fn main() {
         Vec3::new(193.0, 383.0, 0.0)
     ];
 
+    //Se rellena primero y se define el color
+    framebuffer.set_current_color(0x00FFFF); //(G,B,R) -> Amarillo
+    framebuffer.fill_polygon(&polygon_points);
+
+    //Se traza el borde después
+    framebuffer.set_current_color(0xFFFFFF);//Borde Blanco
     framebuffer.polygon(&polygon_points);
 
-    framebuffer.set_current_color(0x00FFFF);
-    framebuffer.fill_polygon(&polygon_points);
 
 
     //Polígono 2
-    framebuffer.set_current_color(0xFFFFFF);
 
+    //Se definen los vectores
     let polygon_points = vec![
-        
-        Vec3::new(321.0, 335.0, 0.0), Vec3::new(288.0, 286.0, 0.0), Vec3::new(339.0, 251.0, 0.0), Vec3::new(374.0, 302.0, 0.0)
+        Vec3::new(321.0, 335.0, 0.0),
+        Vec3::new(288.0, 286.0, 0.0),
+        Vec3::new(339.0, 251.0, 0.0),
+        Vec3::new(374.0, 302.0, 0.0)
     ];
 
-    framebuffer.polygon(&polygon_points);
-
-    framebuffer.set_current_color(0xFF0000);
+    //Se rellena primero y se define el color
+    framebuffer.set_current_color(0xFF0000); //(G,B,R) -> Verde
     framebuffer.fill_polygon(&polygon_points);
+
+    //Se traza el borde después
+    framebuffer.set_current_color(0xFFFFFF);//Borde Blanco
+    framebuffer.polygon(&polygon_points);
 
 
     //Polígono 3
-    framebuffer.set_current_color(0xFFFFFF);
 
+    //Se definen los vectores
     let polygon_points = vec![
-        
-        Vec3::new(377.0, 249.0, 0.0),  Vec3::new(411.0, 197.0, 0.0),  Vec3::new(436.0, 249.0, 0.0)
+        Vec3::new(377.0, 249.0, 0.0),
+        Vec3::new(411.0, 197.0, 0.0),
+        Vec3::new(436.0, 249.0, 0.0)
     ];
 
+
+    //Se rellena primero y se define el color
+    framebuffer.set_current_color(0x0000FF); //(G,B,R) -> Rojo
+    framebuffer.fill_polygon(&polygon_points);
+
+    //Se traza el borde después
+    framebuffer.set_current_color(0xFFFFFF);//Borde Blanco
     framebuffer.polygon(&polygon_points);
 
-    framebuffer.set_current_color(0x0000FF);
-    framebuffer.fill_polygon(&polygon_points);
 
     let _ = framebuffer.render_buffer("output.bmp");
 }
